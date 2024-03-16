@@ -4,7 +4,9 @@ import images from "./api/images";
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
-  res.render("index", { title: "Udacity", message: "Image process project" });
+  res
+    .status(200)
+    .render("index", { title: "Udacity", message: "Image process project" });
 });
 
 routes.use("/api", images);

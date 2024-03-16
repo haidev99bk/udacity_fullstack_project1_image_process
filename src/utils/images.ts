@@ -9,15 +9,17 @@ const getResizedImage = async (
   height: number
 ): Promise<string | null> => {
   const resizedImagePath = path.resolve(
-    "./assets/images/resized",
+    "./public/assets/images/resized",
     `${`${name}-${width}-${height}.jpg`}`
   );
   if (fs.existsSync(resizedImagePath)) {
     return resizedImagePath;
   }
 
-  const originImagePath = path.resolve("./assets/images/origin", `${name}.jpg`);
-  console.log("fs.existsSync(originImagePath", fs.existsSync(originImagePath));
+  const originImagePath = path.resolve(
+    "./public/assets/images/origin",
+    `${name}.jpg`
+  );
   if (!fs.existsSync(originImagePath)) {
     throw new Error(
       "No such file existed. Pls input one of following file names: imageA, imageB, imageC, imageD"

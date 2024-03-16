@@ -17,9 +17,9 @@ images.get("/images", async (req, res) => {
       throw new Error("Please input correct url");
     }
 
-    res.sendFile(resizedImage as string);
+    res.status(200).sendFile(resizedImage as string);
   } catch (err: unknown) {
-    res.render("error", {
+    res.status(400).render("error", {
       message: (err as { message?: string })?.message || "",
     });
   }
