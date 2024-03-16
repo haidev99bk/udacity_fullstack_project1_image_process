@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "cp -r ./public dist/public && npx tsc",
     "start": "nodemon ./src/app.ts",
     "test": "npm run build && npx jasmine",
     "lint": "npx eslint . --ext .ts"
@@ -24,6 +24,7 @@
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "jasmine": "^5.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^3.1.0",
     "prettier": "3.2.5",
     "ts-node": "^10.9.2",
