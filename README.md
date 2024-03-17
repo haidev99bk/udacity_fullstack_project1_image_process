@@ -4,10 +4,10 @@ v20.11.1
 
 ### Scripts
 
-- Install: `npm install`
-- Start server: `npm run start`
-- Build: `npm run build`
-- Run tests: `npm run test`
+-   Install: `npm install`
+-   Start server: `npm run start`
+-   Build: `npm run build`
+-   Run tests: `npm run test`
 
 #### Images available:
 

@@ -1,38 +1,38 @@
-import sharp from "sharp";
-import fs from "fs";
-import path from "path";
-import { writeFile } from "node:fs/promises";
+import sharp from 'sharp'
+import fs from 'fs'
+import path from 'path'
+import { writeFile } from 'node:fs/promises'
 
 const getResizedImage = async (
-  name: string,
-  width: number,
-  height: number
+    name: string,
+    width: number,
+    height: number
 ): Promise<string | null> => {
-  const resizedImagePath = path.resolve(
-    "./public/assets/images/resized",
-    `${`${name}-${width}-${height}.jpg`}`
-  );
-  if (fs.existsSync(resizedImagePath)) {
-    return resizedImagePath;
-  }
+    const resizedImagePath = path.resolve(
+        './public/assets/images/resized',
+        `${`${name}-${width}-${height}.jpg`}`
+    )
+    if (fs.existsSync(resizedImagePath)) {
+        return resizedImagePath
+    }
 
-  const originImagePath = path.resolve(
-    "./public/assets/images/origin",
-    `${name}.jpg`
-  );
-  if (!fs.existsSync(originImagePath)) {
-    throw new Error(
-      "No such file existed. Pls input one of following file names: imageA, imageB, imageC, imageD"
-    );
-  }
+    const originImagePath = path.resolve(
+        './public/assets/images/origin',
+        `${name}.jpg`
+    )
+    if (!fs.existsSync(originImagePath)) {
+        throw new Error(
+            'No such file existed. Pls input one of following file names: imageA, imageB, imageC, imageD'
+        )
+    }
 
-  const newImageBuffer = await sharp(originImagePath)
-    .resize(width, height, { fit: "cover" })
-    .toBuffer();
+    const newImageBuffer = await sharp(originImagePath)
+        .resize(width, height, { fit: 'cover' })
+        .toBuffer()
 
-  await writeFile(resizedImagePath, newImageBuffer);
+    await writeFile(resizedImagePath, newImageBuffer)
 
-  return resizedImagePath;
-};
+    return resizedImagePath
+}
 
-export { getResizedImage };
+export { getResizedImage }

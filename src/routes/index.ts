@@ -1,14 +1,15 @@
-import express from "express";
-import images from "./api/images";
+import express from 'express'
+import images from './api/images'
 
-const routes = express.Router();
+const routes = express.Router()
 
-routes.get("/", (req, res) => {
-  res
-    .status(200)
-    .render("index", { title: "Udacity", message: "Image process project" });
-});
+routes.get('/', (req, res) => {
+    res.status(200).render('index', {
+        title: 'Udacity',
+        message: 'Image process project',
+    })
+})
 
-routes.use("/api", images);
+routes.use('/api', images)
 
-export default routes;
+export default routes
